@@ -8,8 +8,10 @@ const App = () => {
   return (
     <div>
       <CarForm />
-      <CarList />
+    
       <CarSearch />
+      <CarList />
+    
       <CarValue/>
     </div>
   )

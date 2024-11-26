@@ -1,12 +1,19 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeCar } from '../store';
+import { createSelector } from '@reduxjs/toolkit';
 
+
+const memoizedCars = createSelector(
+  [(state) => state.cars.data, (state) => state.cars.searchTerm],
+  (data, searchTerm) =>
+    data.filter((car) =>
+      car.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+);
 export default function CarList() {
   const dispatch = useDispatch()
-  const cars = useSelector((state) => {
-    return state.cars.data;
-  });
+  const cars = useSelector(memoizedCars)
   const handleCarDelete = (car) => {
     dispatch(removeCar(car.id))
   }
