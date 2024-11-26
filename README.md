@@ -1,4 +1,4 @@
-# Car Value Calculator
+# React Redux Toolkit Project
 
 This is a React application that calculates the total cost of cars filtered by a search term. The project uses Redux to manage state and displays the total cost of the filtered cars in a simple component.
 
